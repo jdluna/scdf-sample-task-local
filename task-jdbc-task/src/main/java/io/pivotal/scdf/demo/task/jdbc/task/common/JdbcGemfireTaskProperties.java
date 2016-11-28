@@ -46,20 +46,20 @@ public class JdbcGemfireTaskProperties {
      */
     public String regionName;
 
-    /**
+  /*  *//**
      * The GemFire servers to add to pool.
-     */
-    public String servers;
+     *//*
+    public String servers;*/
 
     /**
      * The GemFire locator to add to pool.
      */
     public String locators;
 
-    /**
+/*    *//**
      * The GemFire connection strategy.
-     */
-    public String connectionType;
+     *//*
+    public String connectionType;*/
 
     /**
      * The properties location to be used.
@@ -212,13 +212,13 @@ public class JdbcGemfireTaskProperties {
         this.regionName = regionName;
     }
 
-    public String getServers() {
+/*    public String getServers() {
         return servers;
     }
 
     public void setServers(String servers) {
         this.servers = servers;
-    }
+    }*/
 
     public String getLocators() {
         return locators;
@@ -228,13 +228,13 @@ public class JdbcGemfireTaskProperties {
         this.locators = locators;
     }
 
-    public String getConnectionType() {
+/*    public String getConnectionType() {
         return connectionType;
     }
 
     public void setConnectionType(String connectionType) {
         this.connectionType = connectionType;
-    }
+    }*/
 
     public String getPojoKeyClass() {
         return pojoKeyClass;

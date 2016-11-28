@@ -1,6 +1,5 @@
 package io.pivotal.scdf.demo.task.jdbc.task.config;
 
-
 import io.pivotal.scdf.demo.task.jdbc.task.common.JdbcGemfireTaskProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +12,7 @@ import com.gemstone.gemfire.cache.client.ClientCacheFactory;
 import com.gemstone.gemfire.cache.client.Pool;
 import com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer;
 
+
 @Configuration
 @EnableConfigurationProperties({JdbcGemfireTaskProperties.class})
 public class CacheConfig {
@@ -23,22 +23,26 @@ public class CacheConfig {
     @Bean
     public ClientCache createCache(JdbcGemfireTaskProperties props) {
         LOG.info("Initializing ClientCache..");
-        String pdxSerializedClasses = "io.pivotal.scdf.demo.task.common.model.*";
-        ClientCacheFactory ccf = null;
-        String member;
+        String pdxSerializedClasses = "io.pivotal.scdf.demo.common.model.*";
+        String locator = props.locators;
         Boolean readSerializedFlag = false;
-        if (props.connectionType == "locator") {
-            member = props.locators;
-            ccf = connectStrategyLocator(member);
-        } else if (props.connectionType == "server") {
-            member = props.servers;
-            ccf = connectStrategyServer(member);
-        } else {
-            LOG.error("Invalid Connection Type");
+
+        ClientCacheFactory ccf = new ClientCacheFactory();
+
+        String[] sa1 = locator.split(",");
+        for (String st : sa1) {
+            String[] sat = st.split(":");
+            String host = sat[0];
+            int port = sat.length > 1 ? Integer.parseInt(sat[1]) : 10334;
+            LOG.info("Adding Locator to pool : host={}, port={}", host, port);
+
+            ccf.addPoolLocator(host, port);
+
         }
+
         ccf.setPdxReadSerialized(readSerializedFlag);
         ccf.setPdxSerializer(new ReflectionBasedAutoSerializer(pdxSerializedClasses));
-        LOG.info("Created ClientCache");
+        LOG.info("Created ClientCache with properties[Servers:{}, PdxSerializer:{}, ReadSerialized:{}]", locator, pdxSerializedClasses, readSerializedFlag);
         return ccf.create();
     }
 
@@ -46,31 +50,5 @@ public class CacheConfig {
     public Pool createPool(ClientCache cache) {
         LOG.info("creating pool");
         return cache.getDefaultPool();
-    }
-
-    private ClientCacheFactory connectStrategyLocator(String member) {
-        ClientCacheFactory ccf = new ClientCacheFactory();
-        String[] sa1 = member.split(",");
-        for (String st : sa1) {
-            String[] sat = st.split(":");
-            String host = sat[0];
-            int port = sat.length > 1 ? Integer.parseInt(sat[1]) : 10334;
-            LOG.info("Adding Locator to pool : host={}, port={}", host, port);
-            ccf.addPoolLocator(host, port);
-        }
-        return ccf;
-    }
-
-    private ClientCacheFactory connectStrategyServer(String member) {
-        ClientCacheFactory ccf = new ClientCacheFactory();
-        String[] sa1 = member.split(",");
-        for (String st : sa1) {
-            String[] sat = st.split(":");
-            String host = sat[0];
-            int port = sat.length > 1 ? Integer.parseInt(sat[1]) : 40404;
-            LOG.info("Adding Server to pool : host={}, port={}", host, port);
-            ccf.addPoolServer(host, port);
-        }
-        return ccf;
     }
 }
