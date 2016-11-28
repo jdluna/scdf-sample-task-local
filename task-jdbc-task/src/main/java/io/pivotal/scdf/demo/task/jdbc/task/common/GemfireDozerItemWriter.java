@@ -48,11 +48,11 @@ public class GemfireDozerItemWriter implements ItemWriter<Map<String, Object>> {
                 Set columnNames = payloadAsMap.keySet();
                 LOG.debug("Fields from Map = {}", columnNames.toString());
 
-                Class K = Class.forName(props.pojoKeyClass + props.regionName + "Key");
+                Class K = Class.forName("io.pivotal.scdf.demo.task.common.key." + props.regionName + "Key");
                 Object k = K.newInstance();
                 LOG.debug("KeyClass to map : {}", K.getName());
 
-                Class V = Class.forName(props.pojoClass + props.regionName);
+                Class V = Class.forName("io.pivotal.scdf.demo.task.common.model." +props.regionName);
                 Object v = V.newInstance();
                 LOG.debug("ValueClass to map : {}", V.getName());
 

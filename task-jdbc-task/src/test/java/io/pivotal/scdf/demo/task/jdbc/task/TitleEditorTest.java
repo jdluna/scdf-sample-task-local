@@ -2,11 +2,11 @@ package io.pivotal.scdf.demo.task.jdbc.task;
 
 import com.gemstone.gemfire.cache.Region;
 import com.gemstone.gemfire.cache.client.ClientCache;
+import io.pivotal.scdf.demo.task.common.model.TitleEditor;
 import io.pivotal.scdf.demo.task.jdbc.task.common.GemfireDozerItemWriter;
 import io.pivotal.scdf.demo.task.jdbc.task.config.CacheConfig;
 import io.pivotal.scdf.demo.task.jdbc.task.config.DozerConfig;
 import io.pivotal.scdf.demo.task.jdbc.task.config.RegionConfig;
-import io.pivotal.gemfire.pubs.model.TitleEditor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

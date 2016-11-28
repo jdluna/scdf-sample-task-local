@@ -27,19 +27,19 @@ public class JdbcGemfireTaskProperties {
 
     public static final int DEFAULT_MAX_WORKERS = 2;
 
-    /**
+/*    *//**
      * The Pojo Base package to use in mapping the pojo classes for GemFire.
      * Class must be a dependency.
      * example: "io.pivotal.scdf.demo.common.Model"
-     */
+     *//*
     public String pojoClass;
 
-    /**
+    *//**
      * The Pojo Key Class to use in mapping the pojo key classes for GemFire.
      * Class must be a dependency.
      * example: "io.pivotal.scdf.demo.common.Key"
-     */
-    public String pojoKeyClass;
+     *//*
+    public String pojoKeyClass;*/
 
     /**
      * The GemFire region to write to.
@@ -236,7 +236,7 @@ public class JdbcGemfireTaskProperties {
         this.connectionType = connectionType;
     }*/
 
-    public String getPojoKeyClass() {
+/*    public String getPojoKeyClass() {
         return pojoKeyClass;
     }
 
@@ -250,5 +250,5 @@ public class JdbcGemfireTaskProperties {
 
     public void setPojoClass(String pojoClass) {
         this.pojoClass = pojoClass;
-    }
+    }*/
 }

@@ -52,7 +52,7 @@ public class GemfireDozerItemWriterTestUtil {
             if (regionName != null) {
                 map = DATA_SET.get(regionName);
             }
-            Class K = Class.forName("io.pivotal.gemfire.pubs.key." + regionName+ "Key");
+            Class K = Class.forName("io.pivotal.scdf.demo.task.common.key." + regionName+ "Key");
              k = K.newInstance();
             LOG.debug("KeyClass={}", K.getName());
             listMap.add(map);

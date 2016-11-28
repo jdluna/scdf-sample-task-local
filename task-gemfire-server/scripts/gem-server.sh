@@ -9,7 +9,7 @@ loc=$1[10334]
 
 
 hn=`hostname`
-target=../target
+target=/Users/zhansen/Projects/Demos/scdf-sample-task/task-gemfire-server/target
 xml=../xml
 
 cp=$target/classes

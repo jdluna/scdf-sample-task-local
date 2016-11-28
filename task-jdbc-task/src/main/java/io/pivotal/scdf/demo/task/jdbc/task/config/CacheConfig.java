@@ -23,7 +23,7 @@ public class CacheConfig {
     @Bean
     public ClientCache createCache(JdbcGemfireTaskProperties props) {
         LOG.info("Initializing ClientCache..");
-        String pdxSerializedClasses = "io.pivotal.scdf.demo.common.model.*";
+        String pdxSerializedClasses = "io.pivotal.scdf.demo.task.common.model.*";
         String locator = props.locators;
         Boolean readSerializedFlag = false;
 
@@ -42,7 +42,7 @@ public class CacheConfig {
 
         ccf.setPdxReadSerialized(readSerializedFlag);
         ccf.setPdxSerializer(new ReflectionBasedAutoSerializer(pdxSerializedClasses));
-        LOG.info("Created ClientCache with properties[Servers:{}, PdxSerializer:{}, ReadSerialized:{}]", locator, pdxSerializedClasses, readSerializedFlag);
+        LOG.info("Created ClientCache with properties[Locators:{}, PdxSerializer:{}, ReadSerialized:{}]", locator, pdxSerializedClasses, readSerializedFlag);
         return ccf.create();
     }
 
