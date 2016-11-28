@@ -7,9 +7,9 @@
 	<name>task-common</name>
 	<parent>
 		<groupId>io.pivotal.scdf.demo</groupId>
-		<artifactId>task-parent</artifactId>
+		<artifactId>scdf-demo-task-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../task-parent</relativePath>
+		<relativePath>../scdf-demo-task-parent</relativePath>
 	</parent>
 	<build>
 		<plugins>
