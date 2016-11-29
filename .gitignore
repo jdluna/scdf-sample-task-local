@@ -39,6 +39,7 @@ target/
 
 .idea*
 *.iml
+.iml
 
 ######################
 # User-specific stuff:
