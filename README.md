@@ -32,3 +32,10 @@ $ cd scdf-demo-task-parent/
 $ mvn clean install -DskipTests
 ```
 
+##**Resources**
+
+* https://cloud.spring.io/spring-cloud-dataflow/
+* http://cloud.spring.io/spring-cloud-task/
+* http://gemfire.docs.pivotal.io/docs-gemfire/about_gemfire.html
+* https://pivotal.io/
+* https://spring.io/ 

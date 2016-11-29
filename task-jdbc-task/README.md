@@ -34,8 +34,12 @@ The **task-jdbc-task** has the following options:
 ##**Deploy via shell**
 
 ```
-$ java -jar spring-cloud-dataflow-server-local.<version>.jar
-$ java -jar spring-cloud-dataflow-shell.<version>.jar
+$ wget http://repo.spring.io/snapshot/org/springframework/cloud/spring-cloud-dataflow-server-local/1.1.1.BUILD-SNAPSHOT/spring-cloud-dataflow-server-local-1.1.1.BUILD-SNAPSHOT.jar
+
+$ wget http://repo.spring.io/snapshot/org/springframework/cloud/spring-cloud-dataflow-shell/1.1.1.BUILD-SNAPSHOT/spring-cloud-dataflow-shell-1.1.1.BUILD-SNAPSHOT.jar
+
+$ java -jar spring-cloud-dataflow-server-local-1.1.1.BUILD-SNAPSHOT.jar
+$ java -jar spring-cloud-dataflow-shell-1.1.1.BUILD-SNAPSHOT.jar
 
 dataflow> app register —name mytask --type task --uri https://github.com/zhansen-pivotal/scdf-sample-task/raw/master/task-jdbc-task/target/task-jdbc-task-0.0.1-SNAPSHOT.jar
 dataflow> app info --id task:mytask 
@@ -54,3 +58,8 @@ gfsh> connect --locator=<host>:10334
 gfsh> show metrics --region=/Author
 gfsh> query --query="select * from /Author"
 ```
+
+##**Resources**
+
+* https://cloud.spring.io/spring-cloud-dataflow/
+* http://cloud.spring.io/spring-cloud-task/
