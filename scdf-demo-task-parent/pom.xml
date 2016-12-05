@@ -4,10 +4,10 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
   <groupId>io.pivotal.scdf.demo</groupId>
-  <artifactId>scdf-demo-task-parent</artifactId>
+  <artifactId>scdf-demo-task-local</artifactId>
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>scdf-demo-task-parent</name>
+  <name>scdf-demo-task-local</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

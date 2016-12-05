@@ -1,6 +1,11 @@
 # task-jdbc-task
 A Spring Cloud Dataflow Task for jdbc --> gemfire. 
 
+**Includes:**
+
+   * Task application for Spring Cloud DataFlow
+   * Test package integration for Gemfire regions 
+
 ##**Options**
 
 The **task-jdbc-task** has the following options:

@@ -9,7 +9,7 @@
     <description>Spring Cloud Task Jdbc Gemfire Starter</description>
     <parent>
         <groupId>io.pivotal.scdf.demo</groupId>
-        <artifactId>scdf-demo-task-parent</artifactId>
+        <artifactId>scdf-demo-task-local</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../scdf-demo-task-parent</relativePath>
     </parent>
